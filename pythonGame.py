@@ -8,7 +8,7 @@ import os
 
 wn = turtle.Screen()
 wn.bgcolor("black")
-wn.title("Jaylen's Game")
+wn.title("Space Game")
 
 #border
 border_pen = turtle.Turtle()
