@@ -8,7 +8,7 @@ import os
 
 wn = turtle.Screen()
 wn.bgcolor("black")
-wn.title("Space Game")
+wn.title("Space Invaders")
 
 #border
 border_pen = turtle.Turtle()
@@ -62,6 +62,22 @@ def move_left():
     if x < -280:
         x = -280
     player.setx(x)
+
+def move_up():
+    y = player.ycor()
+    y += playerspeed
+    if y > 280:
+        y = 280
+    player.sety(y)
+
+def move_down():
+    y = player.ycor()
+    y -= playerspeed
+    if y < -280:
+        y = -280
+    player.sety(y)
+    
+        
     
 def move_right():
     x = player.xcor()
@@ -82,6 +98,9 @@ def fire_bullet():
 turtle.listen()
 turtle.onkey(move_left, "a") 
 turtle.onkey(move_right, "d")
+turtle.onkey(move_up, "w")
+turtle.onkey(move_down, "s")
+turtle.onkey(fire_bullet, "space")
 
 #create the enemy
 enemy = turtle.Turtle()
@@ -93,6 +112,22 @@ enemy.setpos(-200,250)
 
 enemyspeed=5
 
+#make player bullet
+bullet = turtle.Turtle()
+bullet.color("yellow")
+bullet.shape("circle")
+bullet.penup()
+bullet.speed(0)
+bullet.setheading(90)
+bullet.shapesize(0.25,0.25)
+bullet.hideturtle()
+
+bulletspeed = 20
+
+#define the bullet state
+
+#state 1: ready to fire
+bulletstate = "ready"
 
 
 #main game loop
@@ -114,6 +149,11 @@ while True:
         y = enemy.ycor()
         y -= 40
         enemy.sety(y)
+    
+     #move the bullet
+    y=bullet.ycor()
+    y += bulletspeed
+    bullet.sety(y)
         
         
     
