@@ -1,0 +1,8 @@
+jonicText= print("Hi Reece, how are you?")
+
+reeceText= print("I'm doing great, what about you?")
+
+jonicReply= print("I'm doing great as well, thanks for asking. You should add to my repository: /PythonGame")
+
+reeceReply= print("Sure I'll do that")
+
